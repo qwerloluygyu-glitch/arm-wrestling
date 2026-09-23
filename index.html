@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARM WRESTLING | Championship</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #090909;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  padding: 35px 15px;
+  text-align: center;
+  background: linear-gradient(135deg, #250000, #0a0a0a 70%);
+  border-bottom: 2px solid #e50914;
+}
+
+header h1 {
+  font-size: clamp(27px, 7vw, 48px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+header h1 span {
+  color: #e50914;
+}
+
+header p {
+  color: #aaa;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.banner {
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #292929;
+  background: #111;
+}
+
+.banner strong {
+  color: #e50914;
+  font-size: 22px;
+}
+
+.banner p {
+  color: #aaa;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.controls {
+  max-width: 900px;
+  margin: 15px auto;
+  padding: 0 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input, select {
+  flex: 1;
+  min-width: 130px;
+  padding: 12px;
+  color: white;
+  background: #171717;
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #e50914;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 12px 35px;
+}
+
+.table-title {
+  margin: 30px 0 12px;
+  padding: 13px;
+  background: #171717;
+  border-left: 4px solid #e50914;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-title h2 {
+  font-size: 17px;
+  font-style: italic;
+}
+
+.table-title span {
+  color: #e50914;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #242424;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 310px;
+}
+
+th {
+  color: #e50914;
+  background: #151515;
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+th, td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #252525;
+}
+
+td {
+  font-size: 13px;
+}
+
+tbody tr:nth-child(even) {
+  background: #111;
+}
+
+tbody tr:nth-child(odd) {
+  background: #0c0c0c;
+}
+
+tbody tr:hover {
+  background: #241010;
+}
+
+.rank {
+  color: #777;
+  font-weight: bold;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.weight {
+  color: #e50914;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 10px;
+  color: #555;
+  font-size: 11px;
+  letter-spacing: 2px;
+  border-top: 1px solid #222;
+}
+
+.empty {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+}
+
+@media (max-width: 400px) {
+  th, td {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ARM <span>WRESTLING</span></h1>
+  <p>STRENGTH • POWER • HONOR</p>
+</header>
+
+<div class="banner">
+  <strong>50 — 65 KG</strong>
+  <p>ЧЕМПИОНАТ ПО АРМРЕСТЛИНГУ</p>
+  <p>20 УЧАСТНИКОВ / 2 ТУРНИРНЫЕ ГРУППЫ</p>
+</div>
+
+<div class="controls">
+  <input
+    type="text"
+    id="search"
+    placeholder="Поиск участника..."
+  >
+
+  <select id="weightFilter">
+    <option value="all">Все веса</option>
+    <option value="50">50 кг</option>
+    <option value="51">51 кг</option>
+    <option value="52">52 кг</option>
+    <option value="53">53 кг</option>
+    <option value="54">54 кг</option>
+    <option value="55">55 кг</option>
+    <option value="56">56 кг</option>
+    <option value="57">57 кг</option>
+    <option value="58">58 кг</option>
+    <option value="59">59 кг</option>
+    <option value="60">60 кг</option>
+    <option value="61">61 кг</option>
+    <option value="62">62 кг</option>
+    <option value="63">63 кг</option>
+    <option value="64">64 кг</option>
+    <option value="65">65 кг</option>
+  </select>
+</div>
+
+<main>
+
+  <div class="table-title">
+    <h2>01 / GROUP ALPHA</h2>
+    <span>10 ATHLETES</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>УЧАСТНИК</th>
+          <th>ВЕС</th>
+        </tr>
+      </thead>
+      <tbody id="group1"></tbody>
+    </table>
+  </div>
+
+  <div class="table-title">
+    <h2>02 / GROUP TITAN</h2>
+    <span>10 ATHLETES</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>№</th>
+          <th>УЧАСТНИК</th>
+          <th>ВЕС</th>
+        </tr>
+      </thead>
+      <tbody id="group2"></tbody>
+    </table>
+  </div>
+
+</main>
+
+<footer>
+  ARM WRESTLING CHAMPIONSHIP • 2026
+</footer>
+
+<script>
+const group1 = [
+  {name: "Арман Садыков", weight: 50},
+  {name: "Данияр Беков", weight: 52},
+  {name: "Мирас Ержан", weight: 54},
+  {name: "Алихан Нуров", weight: 55},
+  {name: "Тимур Аскар", weight: 57},
+  {name: "Руслан Исаев", weight: 58},
+  {name: "Ерасыл Кенже", weight: 60},
+  {name: "Амир Болат", weight: 62},
+  {name: "Нурислам Айдар", weight: 64},
+  {name: "Махамбет Олимбетов", weight: 65}
+];
+
+const group2 = [
+  {name: "Азамат Касым", weight: 51},
+  {name: "Еркебулан Али", weight: 53},
+  {name: "Санжар Мурат", weight: 54},
+  {name: "Алибек Серик", weight: 56},
+  {name: "Бекзат Рахим", weight: 57},
+  {name: "Адилет Жан", weight: 59},
+  {name: "Диас Нурлан", weight: 61},
+  {name: "Ильяс Талгат", weight: 63},
+  {name: "Аскар Медет", weight: 64},
+  {name: "Нуржан Ермек", weight: 65}
+];
+
+function renderTable(data, id) {
+  const tbody = document.getElementById(id);
+
+  tbody.innerHTML = "";
+
+  if (data.length === 0) {
+    tbody.innerHTML =
+      '<tr><td colspan="3" class="empty">' +
+      'Участники не найдены</td></tr>';
+    return;
+  }
+
+  data.forEach((athlete, index) => {
+    const tr = document.createElement("tr");
+
+    const rank = document.createElement("td");
+    rank.className = "rank";
+    rank.textContent = String(index + 1).padStart(2, "0");
+
+    const name = document.createElement("td");
+    name.className = "name";
+    name.textContent = athlete.name;
+
+    const weight = document.createElement("td");
+    weight.className = "weight";
+    weight.textContent = athlete.weight + " кг";
+
+    tr.append(rank, name, weight);
+    tbody.appendChild(tr);
+  });
+}
+
+function filterTables() {
+  const query = document
+    .getElementById("search")
+    .value.toLowerCase().trim();
+
+  const selectedWeight =
+    document.getElementById("weightFilter").value;
+
+  function filter(data) {
+    return data.filter(athlete => {
+      const matchesName =
+        athlete.name.toLowerCase().includes(query);
+
+      const matchesWeight =
+        selectedWeight === "all" ||
+        athlete.weight === Number(selectedWeight);
+
+      return matchesName && matchesWeight;
+    });
+  }
+
+  renderTable(filter(group1), "group1");
+  renderTable(filter(group2), "group2");
+}
+
+document.getElementById("search")
+  .addEventListener("input", filterTables);
+
+document.getElementById("weightFilter")
+  .addEventListener("change", filterTables);
+
+renderTable(group1, "group1");
+renderTable(group2, "group2");
+</script>
+
+</body>
+</html>
